@@ -1,0 +1,32 @@
+.app.dark {
+  background-color: lightgrey;
+}
+header {
+  background: skyblue;
+  padding: 10px;
+}
+
+header h1 {
+  /* color: white; */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  display: grid;
+  /*means content on the left is twice the content on right*/
+  grid-template-columns: 2fr 1fr;
+  gap: 100px;
+}
+
+input {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  height: 40px;
+  width: 40px;
+}
