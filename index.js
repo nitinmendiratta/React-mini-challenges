@@ -1,7 +1,12 @@
 const challenges = [
-	//MUST DO
-	// sadanandpai/frontend-mini-challenges
-  { title: "Toast Popup", link: "#" },
+  //Random Projects
+  { 
+    title: "Skeleton Loader", 
+    link: "https://csb-rdv3g4.netlify.app/", 
+    githublink: "React-Skeleton-Loader-With-Theming", 
+    codesandboxlink:"https://codesandbox.io/s/react-skeleton-loader-g0z284?file=/src/App.js"
+  },
+  // sadanandpai/frontend-mini-challenges
   { title: "Toast Popup", link: "#" },
   { title: "Guess the number", link: "#" },
   { title: "Telephone formatter", link: "#" },
@@ -14,7 +19,6 @@ const challenges = [
   { title: "Todo List", link: "#" },
   { title: "Tic-Tac-Toe", link: "#" },
   { title: "Chess board", link: "#" },
-  { title: "Skeleton Loader", link: "#" },
   { title: "Countdown Timer", link: "#" },
   { title: "Area Selector", link: "#" },
   { title: "Carousel", link: "#" },
@@ -31,36 +35,43 @@ const challenges = [
   { title: "Calendar", link: "#" },
   { title: "Emoji Editor", link: "#" },
   
-  //Brad Traversy: 20+ Web Projects With Vanilla JavaScript
-
-  // ZTM: JavaScript Web Projects: 20 Projects to Build Your Portfolio
-
-  // Brad Traversy: 50 Projects In 50 Days - HTML, CSS & JavaScript
-  { title: "Expanding Cards", link: "expanding-cards"},
-  { title: "Progress Steps", link: "progress-steps"},
-  // JavaScript30
-
+  //Udemy: React Tutorial and Projects Course
+  
 ];
 
+const path = "";
+const githubUrl = "https://github.com/nitinmendiratta/React-mini-challenges/tree/main/challenges/";
 const challengeGridEl = document.getElementById("challengeGrid");
 const comingsoonGridEl = document.getElementById("comingsoonGrid");
 
+const cardHTML = `
+<div class="card">
+  <a href=""></a>
+  <div class="externallinks">
+    <a href=""><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" title="github" alt="github"></a>
+    <a href=""><img src="./codesandboxicon.png" title="codesandbox" alt="codesandbox"></a>
+  </div>
+</div>`;
+
 const createAnchorElement = (obj) => {
-  const a = document.createElement("a");
-  
+  var temp = document.createElement('div');
+  temp.innerHTML = cardHTML;
+  var card = temp.firstElementChild;
+  const allLinks = card.getElementsByTagName('a');
+  const github = allLinks[1], codesandbox = allLinks[2];
+
+  allLinks[0].textContent = obj.title;
+  allLinks[0].href = path+obj.link;
 
   if(obj.link === '#'){
-    a.textContent = obj.title;
-    a.classList.add('disabled');
-    a.title = 'To be developed';
-    a.href = '#';
-	comingsoonGridEl.appendChild(a);
+    card.classList.add('disabled');
+    allLinks[0].title = 'To be developed';
+    comingsoonGridEl.appendChild(card);
   }else{
-	  a.textContent = obj.title;
-	  a.href = `./challenges/${obj.link}/`;
-	  challengeGridEl.appendChild(a);
+    github.href = githubUrl+obj.githublink;
+    codesandbox.href = obj.codesandboxlink;
+    challengeGridEl.appendChild(card);
   }
-  return a;
 };
 
 

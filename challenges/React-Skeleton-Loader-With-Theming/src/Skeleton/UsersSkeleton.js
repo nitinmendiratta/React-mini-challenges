@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { UsersContext } from "../Context";
-import SkeletonElement from "../Skeleton/SkeletonElement";
-import Shimmer from "../Skeleton/Shimmer";
+import SkeletonElement from "./SkeletonElement";
+import Shimmer from "./Shimmer";
 
 export default function UsersSkeleton() {
   const { theme, toggleTheme } = useContext(UsersContext);
